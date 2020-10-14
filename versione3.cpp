@@ -59,10 +59,10 @@ int main(){
 				mossa_computer="Carta";
 				break;
 			case 1:
-				mossa_computer="Forbici";
+				mossa_computer="Sasso";
 				break;
 			case 2:
-				mossa_computer="Sasso";
+				mossa_computer="Forbici";
 				break;
 		}
 		
