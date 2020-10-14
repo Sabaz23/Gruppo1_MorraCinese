@@ -22,7 +22,7 @@ const int TURNI = 3; //Costante per il numero di turni
 int main(){
 	
 	//Dichiaro le due giocate
-	char g1,g2;
+	int g1,g2;
 	//Dichiaro la variabile per il nome della mossa del computer
 	string mossa_computer;
 	//Dichiaro la stringa dove scrivere il vincitore
@@ -37,7 +37,7 @@ int main(){
 	
 	cout << "Inserisci il nickname: " << endl;
 	cin >> nickname;
-	cout << "Per inserire una giocata,'c'=carta, 's'=sasso, 'f'= forbici" << endl;
+	cout << "Per inserire una giocata,0=carta, 1=sasso, 2= forbici" << endl;
 	
 	for(i=0;i<TURNI;i++){
 		
@@ -48,7 +48,7 @@ int main(){
 		do{
 			cout << "Inserisci la tua giocata:" << endl;
 			cin >> g1;
-		}while(g1!='c' && g1!='s' && g1!= 'f');
+		}while(g1<0 || g1>2);
 	
 		//Elaboro la giocata del computer
 		srand(time(NULL)); //Randomizzo con il tempo attuale
@@ -56,15 +56,12 @@ int main(){
 		switch(g2) //Converto da int a char per verificare la giocata
 		{
 			case 0:
-				g2='c';
 				mossa_computer="Carta";
 				break;
 			case 1:
-				g2='f';
 				mossa_computer="Forbici";
 				break;
 			case 2:
-				g2='s';
 				mossa_computer="Sasso";
 				break;
 		}
@@ -75,38 +72,12 @@ int main(){
 		{
 			cout << "Pareggio" << endl;
 		}
-		else if(g1 == 'f') //Giocatore 1 forbice
+		else if((g1+1)%3 == g2)
 		{
-			if(g2=='c')
-			{
-				vincitore = nickname; //Forbice vs Carta vince Forbice (G1)
-			}
-			else
-			{
-				vincitore = "Computer"; //Forbice vs Sasso vince Sasso (G2)
-			}
-		}
-		else if(g1 == 'c') //Giocatore 1 Carta
+			vincitore=nickname;
+		}else
 		{
-			if(g2=='s')
-			{
-				vincitore = nickname; //Carta vs Sassso vince Carta (G1)
-			}
-			else
-			{
-				vincitore = "Computer"; //Carta vs Forbice vince Forbice (G2)
-			}
-		}
-		else if(g1 == 's') //Giocatore 1 Sasso
-		{
-			if(g2=='f')
-			{
-				vincitore = nickname; //Sasso vs Forbice vince Sasso (G1)
-			}
-			else
-			{
-				vincitore = "Computer"; //Sasso vs Carta vince Carta (G2)
-			}
+			vincitore="Computer";
 		}
 	
 		if(g1!=g2) //Stampo il vincitore (Se non si pareggia)
@@ -140,4 +111,3 @@ int main(){
 	}
 		
 }
-
