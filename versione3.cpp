@@ -72,7 +72,7 @@ int main(){
 		{
 			cout << "Pareggio" << endl;
 			puntGioc++;
-			puntComp++
+			puntComp++;
 		}
 		else if((g1+1)%3 == g2)
 		{
