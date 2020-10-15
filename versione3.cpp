@@ -71,26 +71,19 @@ int main(){
 		if(g1==g2) //Se le giocate sono le stesse, pareggio
 		{
 			cout << "Pareggio" << endl;
+			puntGioc++;
+			puntComp++
 		}
 		else if((g1+1)%3 == g2)
 		{
 			vincitore=nickname;
+			cout << "Ha vinto il turno: " << vincitore << "!" << endl;
+			puntGioc++; //+1 punto al giocatore
 		}else
 		{
 			vincitore="Computer";
-		}
-	
-		if(g1!=g2) //Stampo il vincitore (Se non si pareggia)
-		{
 			cout << "Ha vinto il turno: " << vincitore << "!" << endl;
-			if(vincitore==nickname)
-			{
-				puntGioc++; //+1 punto al giocatore
-			}
-			else
-			{
-				puntComp++; //+1 punto al computer
-			}
+			puntComp++; //+1 punto al computer
 		}
 	
 		cout << "--------------------------------------------------------------------" << endl; //Linea di separazione per chiarezza 
